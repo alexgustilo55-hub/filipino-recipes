@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipino Recipes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Filipino Cooking Recipes</h1>
+        <p>Learn to cook Filipino dishes step by step!</p>
+        <input type="text" id="searchBar" placeholder="Search recipes...">
+    </header>
+
+    <section id="recipes">
+        <!-- Recipe 1 -->
+        <article class="recipe">
+            <img src="img/k_Photo_Recipes_2024-04-filipino-adobo_filipino-adobo-426.jpg" alt="Chicken Adobo">
+            <h2>Chicken Adobo</h2>
+            <p class="description">A classic Filipino dish with soy sauce, vinegar, and garlic.</p>
+            <p class="tip"><strong>Tip:</strong> Marinate the chicken for at least 30 mins for better flavor.</p>
+            <h3>How to Cook:</h3>
+            <ol class="instructions">
+                <li>Marinate chicken with soy sauce, garlic, and pepper for 30 minutes.</li>
+                <li>Heat oil in a pan and sauté garlic until fragrant.</li>
+                <li>Add chicken and sear until lightly browned.</li>
+                <li>Pour in vinegar and let it boil without stirring for 3 minutes.</li>
+                <li>Add water and bay leaves, then simmer for 30 minutes or until chicken is tender.</li>
+                <li>Adjust taste and serve hot with rice.</li>
+            </ol>
+        </article>
+
+        <!-- Recipe 2 -->
+        <article class="recipe">
+            <img src="img/istockphoto-623283160-612x612.jpg" alt="Sinigang na Baboy">
+            <h2>Sinigang na Baboy</h2>
+            <p class="description">Sour soup with pork and vegetables, easy for beginners.</p>
+            <p class="tip"><strong>Tip:</strong> Add tamarind paste gradually to control sourness.</p>
+            <h3>How to Cook:</h3>
+            <ol class="instructions">
+                <li>Boil pork in water with tomato and onion until tender.</li>
+                <li>Add radish, sitaw (string beans), and eggplant, cook for 5-7 minutes.</li>
+                <li>Add tamarind paste or sinigang mix to taste.</li>
+                <li>Serve hot with rice.</li>
+            </ol>
+        </article>
+
+        <!-- Add more recipes similarly -->
+    </section>
+
+    <!-- Footer -->
+<footer>
+    <p>© 2025 PilipinoCookTips. Created by Alex Reyes</p>
+</footer>
+
+
+    <script>
+        // Search Bar Functionality
+        const searchBar = document.getElementById('searchBar');
+        const recipes = document.getElementsByClassName('recipe');
+
+        searchBar.addEventListener('keyup', function(e){
+            const term = e.target.value.toLowerCase();
+            Array.from(recipes).forEach(function(recipe){
+                const title = recipe.querySelector('h2').textContent.toLowerCase();
+                const description = recipe.querySelector('.description').textContent.toLowerCase();
+                const tip = recipe.querySelector('.tip').textContent.toLowerCase();
+
+                if(title.includes(term) || description.includes(term) || tip.includes(term)){
+                    recipe.style.display = '';
+                } else {
+                    recipe.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

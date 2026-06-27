@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:'Poppins',Arial,sans-serif;
+background:linear-gradient(135deg,#fff8f0,#ffe8d6,#fff8f0);
+background-size:300% 300%;
+animation:bgmove 12s ease infinite;
+color:#333;
+}
+@keyframes bgmove{
+0%{background-position:0 50%}
+50%{background-position:100% 50%}
+100%{background-position:0 50%}
+}
+header{
+text-align:center;
+padding:70px 20px;
+background:linear-gradient(135deg,#ff6f61,#ff8a65,#ffb347);
+background-size:300% 300%;
+animation:bgmove 10s ease infinite;
+color:#fff;
+box-shadow:0 8px 25px rgba(0,0,0,.18);
+position:relative;
+overflow:hidden;
+}
+header::before{
+content:"";
+position:absolute;
+width:250px;height:250px;
+background:rgba(255,255,255,.12);
+border-radius:50%;
+top:-80px;left:-60px;
+animation:float 8s ease-in-out infinite;
+}
+header::after{
+content:"";
+position:absolute;
+width:180px;height:180px;
+background:rgba(255,255,255,.08);
+border-radius:50%;
+right:-40px;bottom:-40px;
+animation:float2 9s ease-in-out infinite;
+}
+@keyframes float{50%{transform:translateY(20px)}}
+@keyframes float2{50%{transform:translateY(-20px)}}
+header h1{font-size:3rem;text-shadow:2px 2px 8px rgba(0,0,0,.2);position:relative}
+header p{margin:15px 0 25px;font-size:1.15rem;position:relative}
+#searchBar{
+width:80%;max-width:480px;padding:14px 22px;border:none;outline:none;
+border-radius:40px;font-size:1rem;
+background:rgba(255,255,255,.95);
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+transition:.3s;
+position:relative;
+}
+#searchBar:focus{transform:scale(1.03);box-shadow:0 15px 30px rgba(0,0,0,.2)}
+section#recipes{
+max-width:1200px;
+margin:auto;
+padding:50px 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:30px;
+}
+.recipe{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 8px 22px rgba(0,0,0,.1);
+transition:transform .35s,box-shadow .35s;
+position:relative;
+/* IMPORTANT: no opacity:0 */
+}
+.recipe:hover{
+transform:translateY(-10px);
+box-shadow:0 18px 35px rgba(0,0,0,.18);
+}
+.recipe::before{
+content:"";
+position:absolute;
+top:0;left:-120%;
+width:60%;height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);
+transition:.8s;
+}
+.recipe:hover::before{left:130%}
+.recipe img{
+width:100%;
+height:230px;
+object-fit:cover;
+transition:transform .5s;
+display:block;
+}
+.recipe:hover img{transform:scale(1.06)}
+.recipe h2{padding:18px 20px 5px;color:#ff6f61}
+.recipe .description,
+.recipe h3,
+.recipe ol,
+.recipe .tip{
+padding-left:20px;
+padding-right:20px;
+}
+.recipe .description{color:#555;line-height:1.7}
+.recipe h3{margin-top:12px}
+.recipe ol{padding-bottom:22px;line-height:1.8}
+.recipe .tip{
+background:#fff7da;
+border-left:5px solid #ffc107;
+padding-top:12px;padding-bottom:12px;
+margin:18px 20px;
+border-radius:8px;
+transition:.3s;
+}
+.recipe .tip:hover{transform:translateX(5px)}
+footer{
+margin-top:70px;
+background:linear-gradient(135deg,#ff6f61,#ff8a65);
+color:#fff;
+padding:60px 10%;
+}
+.footer-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
+}
+.footer-about h2{margin-bottom:15px;font-size:28px}
+.footer-about p{line-height:1.8}
+.footer-links h3,.footer-contact h3{margin-bottom:15px}
+.footer-links ul{list-style:none;padding:0}
+.footer-links li{margin:12px 0}
+.footer-links a{
+color:#fff;text-decoration:none;transition:.3s;
+}
+.footer-links a:hover{color:#ffe082;padding-left:8px}
+.footer-contact p{line-height:1.8}
+footer hr{
+border:none;height:1px;background:rgba(255,255,255,.3);
+margin:35px 0 20px;
+}
+.copyright{text-align:center}
+.copyright strong{color:#fff176}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-thumb{background:#ff8a65;border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:#ff6f61}
+@media(max-width:768px){
+header h1{font-size:2rem}
+#searchBar{width:95%}
+.footer-container{text-align:center}
+.footer-links a:hover{padding-left:0}
+}
